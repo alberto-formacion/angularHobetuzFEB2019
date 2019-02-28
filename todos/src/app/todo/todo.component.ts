@@ -9,14 +9,22 @@ import { Todo } from './todo';
 export class TodoComponent implements OnInit {
 
   tareas: Array<Todo>;
+  nuevoTodo: Todo;
 
   constructor() { }
 
   ngOnInit() {
+    this.nuevoTodo = new Todo('', false, false);
     this.tareas = [
       new Todo('Pasear a Goku', false, false),
       new Todo('Sacar la basura', false, false)
     ];
+  }
+
+  addTodos() {
+    this.tareas.push(this.nuevoTodo);
+    this.nuevoTodo = new Todo('', false, false);
+    console.log(this.tareas);
   }
 
 }
