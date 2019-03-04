@@ -27,4 +27,16 @@ export class TodoComponent implements OnInit {
     console.log(this.tareas);
   }
 
+  cambiarEstadoTarea(tarea: Todo): void {
+    tarea.terminado = !tarea.terminado;
+    console.log(this.tareas);
+  }
+
+  setStyles(tarea: Todo): any {
+    return {
+      'importante': tarea.importante,
+      'terminada': tarea.terminado
+    };
+  }
+
 }

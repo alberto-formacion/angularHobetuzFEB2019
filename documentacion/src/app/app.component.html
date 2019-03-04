@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" [routerLink]="['/inicio']" href="#"><img src="../assets/angular.png" title="angular" alt="angular"/></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">      
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/instalacion" href="#">Instalacion</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/inicio" href="#">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/typescript" href="#">TypeScript</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/estructura" href="#">Estructura de un Proyecto</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/componentes" href="#">Componentes</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/directivas" href="#">Binding y Directivas</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/pipes" href="#">Pipes</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/formularios" href="#">Formularios</a>
+      </li>             
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/routing" href="#">Routing</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/servicios" href="#">Servicios</a>
+      </li>     
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

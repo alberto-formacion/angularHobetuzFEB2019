@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="jumbotron mt-3">
+    <h3>Componentes</h3>
+    <div>
+      <p class="lead">Los componentes son como el bloque básico de construcción en una aplicación Angular.</p>
+      <p class="lead">Estan compuestos por:</p>
+      <ul>
+        <li>Selector</li>
+        <li>HTML (template)</li>
+        <li>Estilos (style)</li>
+      </ul>
+      <p class="lead">Los componentes se decoran con <code>@Component()</code>, este decorador recibe un array de valores:</p>
+      <ul>
+        <li><code>selector</code> el nombre que utilizaremos donde queremos utilizar este componente.</li>
+        <li><code>templateUrl</code> fichero donde tenemos nuestro código HTML.</li>
+        <li><code>template</code> código HTML incrustado en el componente directamente.</li>
+        <li><code>styleUrls</code> fichero donde tenemos los estilos del componente.</li>
+        <li><code>styles</code> código CSS directamente incrustado en nuestro componente.</li>
+      </ul>
+      <p class="lead">Estas son las mas comunes pero hay mas opciones...</p>
+      <a class="btn btn-lg btn-primary mt-3" href="https://angular.io/api/core/Component" target="_blank" role="button">Para mas información &raquo;</a>
+    </div>
+  </div>
+  <div class="jumbotron mt-3">
+    <div>
+      <h3>Comunicación entre Componentes</h3>
+      <p class="lead">Los componentes se pueden comunicar entre ellos pero siempre de padre a hijo o de hijo a padre.</p>
+    </div>
+    <div>
+      <h4>Comunicación Padre-Hijo</h4>
+      <p class="lead">En el padre (contenedor):</p>
+      <ul><li><code>&lt;app-hijo [variable]="valorParaEnviar"&gt;&lt;/app-hijo&gt;</code></li></ul>
+      <p class="lead">En el hijo (presentador):</p>
+      <ul><li><code>@Input() variable: any;</code></li></ul>
+    </div>
+    <div>
+      <h4>Comunicación Hijo-Padre</h4>
+      <p class="lead">En el hijo (presentador):</p>
+      <ul>
+        <li>
+          En el componente:
+          <ul>
+            <li><code>@Output() public emitter = new EventEmitter&lt;any&gt;();</code></li>
+            <li><code>enviar(valorParaEnviar: any): void &#123; this.emitter.emit(valorParaEnviar); &#125;</code></li>
+          </ul>
+        </li>
+        <li>
+          En el template:
+          <ul>
+            <li><code>&lt;button (click)="enviar(valorParaEnviar)"&gt;</code></li>
+          </ul>
+        </li>
+      </ul>
+      <p class="lead">En el padre (contenedor):</p>
+      <ul><li><code>&lt;app-hijo (emitter)="metodoParaTratarComunicacion($event)"&gt;&lt;/app-hijo&gt;</code></li></ul>
+    </div>
+    <a class="btn btn-lg btn-primary mt-3" href="https://github.com/alberto-formacion/angularHobetuz2019/tree/master/InputOutput" target="_blank" role="button">Ejemplo &raquo;</a>
+  </div>
+</div>

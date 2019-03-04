@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="jumbotron mt-3">
+    <h3>Routing</h3>
+    <p class="lead">El Routing lo utilizamos para crear nuestras SPA y poder navegar entre componentes.</p>
+    <p>Para esto tenemos que hacer:</p>
+    <ol>
+      <li>En el index.html añadir</li>
+      <li>
+        Añadir las rutas en la variable routes del AppRoutingModule
+        <ul>
+          <li><code ngNonBindable>const routes: Routes = [ <br> &nbsp; &#123; path: 'heroes', component: HeroesComponent &#125;, <br> &nbsp; &#123; path: 'not-found', component: NotFoundComponent &#125;, <br> &nbsp; &#123; path: '**', redirectTo: 'not-found' &#125; <br>];</code></li>
+        </ul>
+      </li>
+      <li></li>
+    </ol>
+  </div>
+</div>

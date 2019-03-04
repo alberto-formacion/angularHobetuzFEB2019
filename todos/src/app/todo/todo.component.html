@@ -1,4 +1,16 @@
-<input type="text" [(ngModel)]="nuevoTodo.nombre"> <input type="checkbox">importante <button (click)="addTodos()">Añadir Tarea</button>
-<ul>
-  <li *ngFor="let tarea of tareas">{{tarea.nombre}}</li>
-</ul>
+<input type="text" [(ngModel)]="nuevoTodo.nombre"> 
+<input type="checkbox" [(ngModel)]="nuevoTodo.importante">importante 
+<button (click)="addTodos()">Añadir Tarea</button>
+<div *ngIf="tareas.length > 0">
+  <ul>
+    <li *ngFor="let tarea of tareas" 
+      (click)="cambiarEstadoTarea(tarea)"
+      [ngClass]="setStyles(tarea)">
+        {{tarea.nombre}}
+    </li>
+  </ul>
+</div>
+<div *ngIf="tareas.length == 0">
+  <h3>Todas las tareas terminadas</h3>
+</div>
+

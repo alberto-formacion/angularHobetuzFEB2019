@@ -1,0 +1,11 @@
+ul li{
+    cursor: pointer;
+}
+
+.importante{
+    color: red;
+}
+
+.terminada{
+    text-decoration: line-through;
+}

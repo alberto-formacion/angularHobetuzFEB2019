@@ -1,0 +1,108 @@
+<div class="container-fluid">
+  <div class="jumbotron mt-3">
+    <h3>Binding</h3>
+    <p class="lead">Existen cuatro tipos de comunicacion entre el HTML y el componente.</p>
+    <ol>
+      <li>Interpolación - Comunicación desde el Componente al HTML</li>
+      <li>Property binding - Comunicación desde el Componente al HTML</li>
+      <li>Event binding - Cominicación desde el HTML al Componente</li>
+      <li>Two-way binding - Comunicacion en doble dirección</li>
+    </ol>
+
+    <h5>Interpolación</h5>
+    <p>Se utliza para mostrar un valor que tenemos en el componente en el template.</p>
+    <ul>
+      <li>El valor se pone entre llaves <code ngNonBindable>&#123;&#123;valorParaMostrar&#125;&#125;</code></li>
+      <li><em>{{valorParaMostrar}}</em></li>
+    </ul>
+
+    <h5>Property binding</h5>
+    <p>Se utiliza para asignar un valor a una propiedad de un elemento en el template.</p>
+    <ul>
+      <li>
+        La propiedad se pone entre corchetes y el valor de la propiedad es lo que se envia desde el Componente 
+        <code ngNonBindable>&lt;button [disblaed]="valorDePropiedad"&gt;Botón&lt;/button&gt;</code>
+      </li>
+      <li><button class="btn btn-primary" [disabled]="valorDePropiedad">Botón</button></li>
+    </ul>
+
+    <h5>Event binding</h5>
+    <p>Se utiliza para enviar información desde el template al componente, normalmete para ejecutar una función en el componente.</p>
+    <ul>
+      <li>
+        El evento se pone entre parentesis y el valor es el codigo a ejecutar cuando
+        <code ngNonBindable>&lt;button (click)="accionEnComponente()"&gt;Botón&lt;/button&gt;</code>
+      </li>
+      <li><button class="btn btn-primary" (click)="accionEnComponente($event)">Botón</button></li>
+    </ul>
+    <h5>Two-way binding</h5>
+    <p>Se utiliza para mantener actualizado un valor en template y en el componente a la vez, si el valor cambia en el template cambia a la vez en el componente y viceversa.</p>
+    <ul>
+      <li>Para este tipo de binding tenemos que usar la directiva ngModel entre corchetes y parentesis y el valor es la propiedad que vamos a utilizar <br> <code ngNonBindable>&lt;input type="text" [(ngModel)]="valorBidireccional"&gt;</code></li>
+      <li><input type="text" class="col-sm-12" [(ngModel)]="valorBidireccional"></li>
+      <li>{{valorBidireccional}}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h3>Directivas</h3>
+    <p class="lead">Las directivas son una forma rápida de modificar nuestro HTML, y tenemos 3 tipos:</p>
+    <ol>
+      <li>Componentes</li>
+      <li>Directivas Estructurales</li>
+      <li>Directivas de Atributo</li>
+    </ol>
+
+    <h5>Componentes</h5>
+    <p>Un Componente es un caso concreto de directiva que siempre va asociado a un template y al que por ser un elemento tan importante en Angular 2 se le ha dado un decorador propio <code>@Component</code></p>
+
+    <h5><a href="https://angular.io/guide/structural-directives">Directivas Estructurales</a></h5>
+    <p>Estas directivas, siempre van precedidas por un asterisco, alteran el layout añadiendo, eliminando o reemplazando elementos en el DOM.</p>
+    <ul>
+      <li>
+        <a href="https://angular.io/api/common/NgForOf" target="_blank">*ngFor</a>
+        <ul>
+          <li><code ngNonBindable>&lt;li *ngFor="let item of list"&gt;{{item}}&lt;/li&gt;</code></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://angular.io/api/common/NgIf" target="_blank">*ngIf</a>
+        <ul>
+            <li><code ngNonBindable>&lt;div *ngIf="expression"&gt;Contenido&lt;/div&gt;</code></li>
+          </ul>        
+      </li>
+    </ul>
+
+    <h5>Directivas de Atributo</h5>
+    <p>Alteran la apariencia o el comportamiento de un elemento existente en el DOM y su apariencia es igual a la de atributos HTML.</p>
+    <ul>
+      <li>
+        <a href="https://angular.io/api/forms/NgModel" target="_blank">ngModel</a>
+        <ul>
+          <li><code ngNonBindable>&lt;input type="text" [(ngModel)]="valorBidireccional"&gt;</code></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://angular.io/api/common/NgClass" target="_blank">ngClass</a>
+        <ul>
+          <li><code ngNonBindable>&lt;div [ngClass]="setClasses()"&gt;Texto&lt;/div&gt;</code></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://angular.io/api/common/NgStyle" target="_blank">ngStyle</a>
+        <ul>
+          <li><code ngNonBindable>&lt;div [ngStyle]="setStyles()"&gt;Texto&lt;/div&gt;</code></li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="container-fluid">
+    <div class="jumbotron">
+      <h3>Directivas Personalizas</h3>
+    </div>
+  </div>

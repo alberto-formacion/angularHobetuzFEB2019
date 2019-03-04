@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="jumbotron mt-3">
+    <h3>Pipes</h3>
+    <p class="lead">Los pipes nos permiten modificar los datos que exponemos en las vistas, es decir formatear la información que presentamos al usuario.</p>
+    <p>Angular nos ofrece unos pipes preconstruidos (Built-in). Algunos de estos son:</p>
+    <ul>
+      <li><a href="https://angular.io/api/common/DecimalPipe">DecimalPipe</a> <code ngNonBindable> &#123;&#123; value_expression | number [ : digitsInfo [ : locale ] ] &#125;&#125;</code></li>
+      <li><a href="https://angular.io/api/common/UpperCasePipe">UpperCasePipe</a> / <a href="https://angular.io/api/common/LowerCasePipe">LowerCasePipe</a> <code ngNonBindable> &#123;&#123; value_expression | uppercase &#125;&#125;</code></li>
+      <li><a href="https://angular.io/api/common/CurrencyPipe">CurrencyPipe</a> <code ngNonBindable> &#123;&#123; value_expression | currency [ : currencyCode [ : display [ : digitsInfo [ : locale ] ] ] ] &#125;&#125;</code></li>
+      <li><a href="https://angular.io/api/common/DatePipe">DatePipe</a> <code ngNonBindable> &#123;&#123; value_expression | date [ : format [ : timezone [ : locale ] ] ] &#125;&#125;</code>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="jumbotron mt-3">
+    <h3>Pipes de Usuario</h3>
+    <p class="lead">Angular nos permite la creación de nuestros propios Pipes</p>
+    <p>Para esto utilizaremos el decorador <code>@Pipe</code> y también haremos que nuestra clase pipe implemente la interfaz <code>PipeTransform</code> lo que hace que tengamos que implementar el método <code>transform</code>.</p>
+    <p>El método <code>transform</code> recibe por parametro el elemento que queremos modificar y los parametros extras que necesitemos para la correcta transformación y debemos devolver lo que queremos mostrar transformado.</p>
+    <p>A estos Pipes se les llama exactamente igual que a los Built-in pero con el <code>name</code> que le hayamos puesto.</p>
+    <a href="https://github.com/alberto-formacion/angularHobetuz2019/tree/master/todos/src/app/pipes" class="btn btn-lg btn-primary" target="_blank">Ejemplo &raquo;</a> &nbsp;
+    <a href="https://github.com/alberto-formacion/angularHobetuz2019/tree/master/futbol/src/app/pipes" class="btn btn-lg btn-primary" target="_blank">Otro Ejemplo &raquo;</a>
+  </div>
+</div>

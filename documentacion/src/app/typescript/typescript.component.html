@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <div class="jumbotron mt-3">
+    <h3>¿Qué es?</h3>
+    <p class="lead">Super conjunto de javascript que nos permite programar con las caracteristicas de un lenguaje
+      Orientado a Objetos (como Java), pero en javascript.</p>
+    <a class="btn btn-lg btn-primary" href="https://www.typescriptlang.org/docs/home.html" target="_blank"
+      role="button">Documentación
+      &raquo;</a>
+  </div>
+
+  <div class="jumbotron">
+    <h3>
+      Caracteristicas de TypeScript
+    </h3>
+    <div>
+      <h4>Instalar</h4>
+      <p>
+        <code>npm install -g typescript</code>
+      </p>
+      <h4>Tipado de variables, métodos</h4>
+      <div class="lead">
+        En TypeScript podemos tipar nuestras variables:
+      </div>
+      <ul>
+          <li><code>let user: string</code></li>
+          <li><code>let edad: number</code></li>
+          <li><code>let alumnos: Array&lt;Alumnos&gt;</code></li>
+        </ul>
+      <div>
+        <p class="lead">También en los métodos el tipo de retorno y los parametros:</p>
+        <p><code>function suma(numero1: number, numero2: number): number &#123;...&#125;</code></p>
+        <p class="lead">Otra capacidad de TypeScript son los valores por defecto:</p>
+        <p><code>function suma(numero1: number = 0, numero2: number = 0): number &#123;...&#125;</code></p>
+      </div>
+      <h4>Interfaces</h4>
+      <div>
+        <p class="lead">Las interfaces se utilizan para definir un patrón</p>
+        <div>
+          <code>
+            <p>
+            interface sumergibleInterface &#123;
+              tiempoMaxBajoElAgua: number;
+              profundidadMaxima: number;
+
+              repelerAgua(): void;
+            &#125;
+            </p>
+          </code>
+        </div>
+      </div>
+      <h4>Clases</h4>
+      <div>
+        <p class="lead">Las clases es donde declararemos nuestras variables y métodos, se podría decir que son tipos de datos creados
+          por nosotros.</p>
+        <code>
+          <p>
+            class relojSumergible implements sumergibleInterface &#123;
+              tiempoMaxBajoElAgua = 1;
+              profundidadMaxima = 10;
+              repelerAgua() &#123;
+                console.log('El agua me resbala');
+              &#125;
+            &#125;
+          </p>
+        </code>
+      </div>
+      <h4>Compilado</h4>
+      <p class="lead">Para compilar un archivo: </p>
+      <p><code>tsc prueba.ts</code></p>
+      <div>
+        <p class="lead">Para compilar un proyecto:</p>
+        <ul>
+          <li>Crear tsconfig.json: <code>tsc --init</code></li>
+          <li>Compilar el proyecto: <code>tsc -p ./</code></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
