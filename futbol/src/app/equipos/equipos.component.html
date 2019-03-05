@@ -1,0 +1,31 @@
+<div>
+  <div>Nombre: <input type="text" [(ngModel)]="nuevoEquipo.nombre"></div>
+  <div>Ciudad: <input type="text" [(ngModel)]="nuevoEquipo.ciudad"></div>
+  <div>Socios: <input type="number" [(ngModel)]="nuevoEquipo.socios"></div>
+  <div>Año de Fundación: <input type="number" [(ngModel)]="nuevoEquipo.fundacion"></div>
+  <button (click)="guardarEquipo()">Guardar</button>
+</div>
+
+<div>
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Ciudad</th>
+      <th>Socios</th>
+      <th>Año de Fundación</th>
+    </tr>
+    <tbody *ngIf="equipos.length > 0">
+      <tr *ngFor="let equipo of equipos" [ngClass]="{importante: equipo.socios > 1000}">
+        <td>{{equipo.nombre}}</td>
+        <td>{{equipo.ciudad}}</td>
+        <td>{{equipo.socios}}</td>
+        <td>{{equipo.fundacion}}</td>
+      </tr>
+   </tbody>
+   <tbody *ngIf="equipos.length == 0">
+      <tr>
+        <td colspan="4">No hay Equipos que mostrar</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
