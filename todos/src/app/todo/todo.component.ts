@@ -34,7 +34,8 @@ export class TodoComponent implements OnInit {
 
   setStyles(tarea: Todo): any {
     return {
-      'importante': tarea.importante,
+      'list-group-item-danger': tarea.importante,
+      'list-group-item-success': tarea.terminado,
       'terminada': tarea.terminado
     };
   }
