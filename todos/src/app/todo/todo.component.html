@@ -3,7 +3,7 @@
 <button (click)="addTodos()">Añadir Tarea</button>
 <div *ngIf="tareas.length > 0">
   <ul class="list-group">
-    <li *ngFor="let tarea of tareas | priorizar" 
+    <li *ngFor="let tarea of tareas | priorizar | terminada : false" 
       (click)="cambiarEstadoTarea(tarea)"
       [ngClass]="setStyles(tarea)"
       class="list-group-item">
@@ -13,5 +13,16 @@
 </div>
 <div *ngIf="tareas.length == 0">
   <h3>Todas las tareas terminadas</h3>
+</div>
+<hr/>
+<div>
+  <ul class="list-group">
+    <li *ngFor="let tarea of tareas | priorizar | terminada : true" 
+      (click)="cambiarEstadoTarea(tarea)"
+      [ngClass]="setStyles(tarea)"
+      class="list-group-item">
+        {{tarea.nombre | uppercase}}
+    </li>
+  </ul>
 </div>
 
