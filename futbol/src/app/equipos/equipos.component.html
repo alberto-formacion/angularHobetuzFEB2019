@@ -7,6 +7,7 @@
 </div>
 
 <div>
+  <div>Buscar Equipo: <input type="text" [(ngModel)]="nombreEquipo" /></div>
   <table>
     <tr>
       <th>Nombre</th>
@@ -15,7 +16,7 @@
       <th>Año de Fundación</th>
     </tr>
     <tbody *ngIf="equipos.length > 0">
-      <tr *ngFor="let equipo of equipos" [ngClass]="{importante: equipo.socios > 1000}">
+      <tr *ngFor="let equipo of equipos | buscarEquipo : nombreEquipo" [ngClass]="{importante: equipo.socios > 1000}">
         <td>{{equipo.nombre}}</td>
         <td>{{equipo.ciudad}}</td>
         <td>{{equipo.socios}}</td>
