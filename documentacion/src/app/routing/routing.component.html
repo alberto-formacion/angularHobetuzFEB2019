@@ -4,14 +4,16 @@
     <p class="lead">El Routing lo utilizamos para crear nuestras SPA y poder navegar entre componentes.</p>
     <p>Para esto tenemos que hacer:</p>
     <ol>
-      <li>En el index.html añadir</li>
+      <li>En el index.html es obligatorio añadir <code>&lt;base href="/"&gt;</code> para que Angular pueda hacer el routing.</li>
+      <li>En AppRoutingModule definimos el módulo (<code ngNonBindable>@NgModule</code>).</li>
       <li>
-        Añadir las rutas en la variable routes del AppRoutingModule
+        Añadir las rutas en la variable routes del AppRoutingModule.
         <ul>
           <li><code ngNonBindable>const routes: Routes = [ <br> &nbsp; &#123; path: 'heroes', component: HeroesComponent &#125;, <br> &nbsp; &#123; path: 'not-found', component: NotFoundComponent &#125;, <br> &nbsp; &#123; path: '**', redirectTo: 'not-found' &#125; <br>];</code></li>
         </ul>
       </li>
-      <li></li>
+      <li>Crear un menu en el que las rutas <code ngNonBindable>routerLink="/inicio"</code> en lugar de los <code>href</code>.</li>
+      <li>Para hacer que la opción del menú se marque según la página en la que estamos hay que poner <code ngNonBindable>routerLinkActive="active"</code>, donde active es la clase CSS que queremos que se le ponga a la opción del menú cuando este activo.</li>
     </ol>
   </div>
 </div>

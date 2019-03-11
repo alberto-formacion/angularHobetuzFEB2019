@@ -1,32 +1,39 @@
-<div>
-  <div>Nombre: <input type="text" [(ngModel)]="nuevoEquipo.nombre"></div>
-  <div>Ciudad: <input type="text" [(ngModel)]="nuevoEquipo.ciudad"></div>
-  <div>Socios: <input type="number" [(ngModel)]="nuevoEquipo.socios"></div>
-  <div>Año de Fundación: <input type="number" [(ngModel)]="nuevoEquipo.fundacion"></div>
-  <button (click)="guardarEquipo()">Guardar</button>
-</div>
+<div class="row">
+  <div class="col-12">
+    <div>Nombre: <input type="text" [(ngModel)]="nuevoEquipo.nombre"></div>
+    <div>Ciudad: <input type="text" [(ngModel)]="nuevoEquipo.ciudad"></div>
+    <div>Socios: <input type="number" [(ngModel)]="nuevoEquipo.socios"></div>
+    <div>Año de Fundación: <input type="number" [(ngModel)]="nuevoEquipo.fundacion"></div>
+    <button class="btn btn-primary" (click)="guardarEquipo()">Guardar</button>
+  </div>
 
-<div>
-  <div>Buscar Equipo: <input type="text" [(ngModel)]="nombreEquipo" /></div>
-  <table>
-    <tr>
-      <th>Nombre</th>
-      <th>Ciudad</th>
-      <th>Socios</th>
-      <th>Año de Fundación</th>
-    </tr>
-    <tbody *ngIf="equipos.length > 0">
-      <tr *ngFor="let equipo of equipos | buscarEquipo : nombreEquipo" [ngClass]="{importante: equipo.socios > 1000}">
-        <td>{{equipo.nombre}}</td>
-        <td>{{equipo.ciudad}}</td>
-        <td>{{equipo.socios}}</td>
-        <td>{{equipo.fundacion}}</td>
-      </tr>
-   </tbody>
-   <tbody *ngIf="equipos.length == 0">
-      <tr>
-        <td colspan="4">No hay Equipos que mostrar</td>
-      </tr>
+  <div class="col-6">
+    <div class="mb-3 mt-3">Buscar Equipo: <input type="text" [(ngModel)]="nombreEquipo" /></div>
+    <table class="table table-dark table-striped table-bordered table-hover">
+      <thead>
+        <tr class="text-center">
+          <th>Nombre</th>
+          <th>Ciudad</th>
+          <th>Socios</th>
+          <th>Año de Fundación</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="equipos.length > 0">
+        <tr *ngFor="let equipo of equipos | buscarEquipo : nombreEquipo" [ngClass]="{importante: equipo.socios > 40000}">
+          <td class="text-center">{{equipo.nombre}}</td>
+          <td class="text-center">{{equipo.ciudad}}</td>
+          <td class="text-right">{{equipo.socios | number:'1.0-0':'es'}}</td>
+          <td class="text-right">{{equipo.fundacion | number:'1.0-0':'es'}}</td>
+        </tr>
     </tbody>
-  </table>
+    <tbody *ngIf="equipos.length == 0">
+        <tr>
+          <td colspan="4" style="text-align: center">No hay Equipos que mostrar</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-6">
+
+  </div>
 </div>
