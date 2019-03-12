@@ -23,7 +23,9 @@
         </tr>
       </thead>
       <tbody *ngIf="equipos.length > 0">
-        <tr *ngFor="let equipo of equipos | buscarEquipo : nombreEquipo" [ngClass]="{importante: equipo.socios > 40000}" (click)="mostrarEquipo(equipo)">
+        <tr *ngFor="let equipo of equipos | buscarEquipo : nombreEquipo" 
+          [ngClass]="{importante: equipo.socios > 40000}" 
+          (click)="mostrarEquipo(equipo)">
           <td class="text-center">{{equipo.nombre}}</td>
           <td class="text-center">{{equipo.ciudad}}</td>
           <td class="text-right">{{equipo.socios | number:'1.0-0':'es'}}</td>

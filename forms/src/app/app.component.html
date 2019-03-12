@@ -1,0 +1,7 @@
+<form [formGroup]="formulario">
+  <input type="text" formControlName="nombre">
+  <p *ngIf="formulario.get('nombre').invalid && formulario.get('nombre').touched">El nombre esta mal!</p>
+  <div><button (click)="register()"
+    [disabled]="formulario.invalid">Register me!</button></div>
+</form>
+
