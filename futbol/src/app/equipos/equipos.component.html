@@ -4,6 +4,10 @@
     <div>Ciudad: <input type="text" [(ngModel)]="nuevoEquipo.ciudad"></div>
     <div>Socios: <input type="number" [(ngModel)]="nuevoEquipo.socios"></div>
     <div>Año de Fundación: <input type="number" [(ngModel)]="nuevoEquipo.fundacion"></div>
+    <div>Escudo: <input type="text" [(ngModel)]="nuevoEquipo.escudo" ></div>
+    <div>
+      <img [src]="nuevoEquipo.escudo" [title]="nuevoEquipo.nombre" [alt]="nuevoEquipo.nombre">
+    </div>
     <button class="btn btn-primary" (click)="guardarEquipo()">Guardar</button>
   </div>
 
@@ -19,7 +23,7 @@
         </tr>
       </thead>
       <tbody *ngIf="equipos.length > 0">
-        <tr *ngFor="let equipo of equipos | buscarEquipo : nombreEquipo" [ngClass]="{importante: equipo.socios > 40000}">
+        <tr *ngFor="let equipo of equipos | buscarEquipo : nombreEquipo" [ngClass]="{importante: equipo.socios > 40000}" (click)="mostrarEquipo(equipo)">
           <td class="text-center">{{equipo.nombre}}</td>
           <td class="text-center">{{equipo.ciudad}}</td>
           <td class="text-right">{{equipo.socios | number:'1.0-0':'es'}}</td>
@@ -33,7 +37,21 @@
       </tbody>
     </table>
   </div>
-  <div class="col-6">
-
+  <div class="jumbotron col-6">
+    <p>
+      <img [src]="equipoSeleccionado.escudo" [title]="equipoSeleccionado.nombre" [alt]="equipoSeleccionado.nombre">
+    </p>
+    <p>
+      {{equipoSeleccionado.nombre}}
+    </p>
+    <p>
+      {{equipoSeleccionado.ciudad}}
+    </p>
+    <p>
+      {{equipoSeleccionado.fundacion}}
+    </p>
+    <p>
+      {{equipoSeleccionado.socios}}
+    </p>
   </div>
 </div>

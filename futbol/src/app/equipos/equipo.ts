@@ -3,6 +3,7 @@ export class Equipo {
         public nombre: string,
         public ciudad: string,
         public socios: number,
-        public fundacion: number
+        public fundacion: number,
+        public escudo: string
     ) { }
 }
