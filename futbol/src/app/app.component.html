@@ -1,7 +1,5 @@
-<nav>
-    <ul>
-        <li><a [routerLink]="['/equipos']" routerLinkActive="active" >Equipos</a></li>
-        <li><a [routerLink]="['/jugadores']" routerLinkActive="active">Jugadores</a></li>
-    </ul>
+<nav class="nav nav-pills nav-justified">
+    <a class="nav-item nav-link" [routerLink]="['/equipos']" routerLinkActive="active" >Equipos</a>
+    <a class="nav-item nav-link" [routerLink]="['/jugadores']" routerLinkActive="active">Jugadores</a>
 </nav>
 <router-outlet></router-outlet>
