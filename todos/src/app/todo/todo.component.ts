@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from './todo';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -11,24 +12,20 @@ export class TodoComponent implements OnInit {
   tareas: Array<Todo>;
   nuevoTodo: Todo;
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
     this.nuevoTodo = new Todo('', false, false);
-    this.tareas = [
-      new Todo('Pasear a Goku', false, false),
-      new Todo('Sacar la basura', false, false)
-    ];
+    this.tareas = this.todoService.getTodos();
   }
 
   addTodos() {
-    this.tareas.push(this.nuevoTodo);
+    this.tareas = this.todoService.addTodo(this.nuevoTodo);
     this.nuevoTodo = new Todo('', false, false);
-    console.log(this.tareas);
   }
 
   cambiarEstadoTarea(tarea: Todo): void {
-    tarea.terminado = !tarea.terminado;
+    this.tareas = this.todoService.updateTodo(tarea);
     console.log(this.tareas);
   }
 
