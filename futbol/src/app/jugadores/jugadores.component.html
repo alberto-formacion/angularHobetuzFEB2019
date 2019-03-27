@@ -1,3 +1,41 @@
-<p>
-  jugadores works!
-</p>
+<app-lista-equipos class="col-6" [equipos]="equipos" (emitter)="mostrarJugadores($event)"></app-lista-equipos>
+<div *ngIf="jugadores">
+  <table class="table table-dark table-striped table-bordered table-hover">
+    <thead>
+      <tr class="text-center">
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+        <th>Dorsal</th>
+        <th>Demarcación</th>
+        <th>Equipo</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="jugadores.length > 0">
+      <tr *ngFor="let jugador of jugadores" (click)="mostrarJugador(jugador)">
+        <td class="text-center">{{jugador.nombre}}</td>
+        <td class="text-center">{{jugador.apellido}}</td>
+        <td class="text-center">{{jugador.edad}}</td>
+        <td class="text-center">{{jugador.dorsal}}</td>
+        <td class="text-center">{{jugador.demarcacion}}</td>
+        <td class="text-center">{{jugador.equipo.nombre}}</td>
+      </tr>
+  </tbody>
+  <tbody *ngIf="jugadores.length == 0">
+      <tr>
+        <td colspan="4" style="text-align: center">No hay jugadores que mostrar</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="jugador">
+  <div class="jumbotron">
+    <p>{{jugador.nombre}}</p>
+    <p>{{jugador.apellido}}</p>
+    <p>{{jugador.edad}}</p>
+    <p>{{jugador.dorsal}}</p>
+    <p>{{jugador.demarcacion}}</p>
+    <p>{{jugador.equipo.nombre}}</p>
+  </div>
+</div>

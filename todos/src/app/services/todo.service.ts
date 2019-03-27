@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Todo } from '../todo/todo';
-import { TodoComponent } from '../todo/todo.component';
 
 @Injectable({
-  providedIn: TodoComponent
+  providedIn: 'root'
 })
 export class TodoService {
 
