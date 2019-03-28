@@ -9,31 +9,36 @@ import { TodoService } from '../services/todo.service';
 })
 export class TodoComponent implements OnInit {
 
-  tareas: Array<Todo>;
+  tareas: Array<Todo> = [];
   nuevoTodo: Todo;
 
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
-    this.nuevoTodo = new Todo('', false, false);
-    this.tareas = this.todoService.getTodos();
+    this.nuevoTodo = new Todo(0, '', false, false);
+    //this.tareas = this.todoService.getTodos();
+    this.todoService.getTodos().subscribe(todos => {
+      console.log(todos);
+      this.tareas = todos;
+      console.log(this.tareas);
+    });
   }
 
   addTodos() {
-    this.tareas = this.todoService.addTodo(this.nuevoTodo);
-    this.nuevoTodo = new Todo('', false, false);
+    this.todoService.addTodo(this.nuevoTodo).subscribe(todos => this.tareas = todos);
+    this.nuevoTodo = new Todo(0, '', false, false);
   }
 
   cambiarEstadoTarea(tarea: Todo): void {
-    this.tareas = this.todoService.updateTodo(tarea);
+    this.todoService.updateTodo(tarea).subscribe(todos => this.tareas = todos);
     console.log(this.tareas);
   }
 
   setStyles(tarea: Todo): any {
     return {
       'list-group-item-danger': tarea.importante,
-      'list-group-item-success': tarea.terminado,
-      'terminada': tarea.terminado
+      'list-group-item-success': tarea.terminada,
+      'terminada': tarea.terminada
     };
   }
 

@@ -1,38 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Todo } from '../todo/todo';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
 
-  tareas: Array<Todo>;
+  url = 'http://localhost:8080/todos';
 
-  constructor() {
-    this.tareas = [
-      new Todo('Pasear a Goku', false, false),
-      new Todo('Sacar la basura', false, false)
-    ];
+  constructor(private httpClient: HttpClient) {}
+
+  getTodos(): Observable<Array<Todo>> {
+    return this.httpClient.get<Array<Todo>>(this.url);
   }
 
-  getTodos(): Array<Todo> {
-    return this.tareas;
+  addTodo(tarea: Todo): Observable<Array<Todo>> {
+    return this.httpClient.post<Array<Todo>>(this.url, tarea);
   }
 
-  addTodo(tarea: Todo): Array<Todo> {
-    this.tareas = [...this.tareas, tarea];
-    return this.tareas;
-  }
-
-  updateTodo(tarea: Todo): Array<Todo> {
-    const todoIndex = this.tareas.indexOf(tarea);
-    tarea.terminado = !tarea.terminado;
-
-    this.tareas = [ ...this.tareas.slice(0, todoIndex),
-      tarea,
-      ...this.tareas.slice(todoIndex + 1)
-    ];
-
-    return this.tareas;
+  updateTodo(tarea: Todo): Observable<Array<Todo>> {
+    return this.httpClient.put<Array<Todo>>(this.url, tarea);
   }
 }

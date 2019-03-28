@@ -1,7 +1,8 @@
 export class Todo {
     constructor(
+        public id: number,
         public nombre: string,
         public importante: boolean,
-        public terminado: boolean
+        public terminada: boolean
     ) { }
 }
